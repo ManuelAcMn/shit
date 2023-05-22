@@ -38,6 +38,8 @@ if blankSpace =="" or blankSpace== " ":
     blankSpace = '#'
 while running:
     clear()
+    if blankSpace =='&' or blankSpace =='.' or blankSpace =='*':
+        print("HARDMODE, Mucha suerte bro")
     display_game(blankSpace, grid_sizef)
     if Debug =="y" or Debug == "Y":
         print("Posicion X jugador: " + str(x))
