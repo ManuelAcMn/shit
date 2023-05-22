@@ -12,19 +12,18 @@ def clear():
 x = 2
 y = 2
 grid_sizef = 5
-x_Enemy = random.randint(1,grid_sizef-1)
-y_Enemy = random.randint(1,grid_sizef-1)
+Enemy = []
 blankSpace = '#'
-if x_Enemy == x and y_Enemy == y:
-    x_Enemy = random.randint(1,grid_sizef-1)
-    y_Enemy = random.randint(1,grid_sizef-1)
+HowMany = int(1)
+Enemy.append(random.randint(1,grid_sizef-1))
+Enemy.append(random.randint(1,grid_sizef-1))
 
 def display_game(game, grid_size):
     for i in range(grid_size):
         for j in range(grid_size):
             if i == x and j == y:
                 print(f"& ", end='')
-            elif i == x_Enemy and j == y_Enemy:
+            elif i == Enemy[0] and j == Enemy[1]:
                 print(f"* ", end='')
             else:
                 print(f"{game} ", end='')
@@ -44,21 +43,23 @@ while running:
     if Debug =="y" or Debug == "Y":
         print("Posicion X jugador: " + str(x))
         print("Posicion Y jugador: " +str(y))
-        print("Posicion X enemigo: " +str(x_Enemy))
-        print("Posicion Y enemigo: " +str(y_Enemy))
+        print("Posicion X enemigo: " +str(Enemy[0]))
+        print("Posicion Y enemigo: " +str(Enemy[1]))
     opc = input("Arriba(w), abajo(s), izquierda(a), derecha(d), sal(q): ")
-    x_EnemyN = x - int(x_Enemy)
-    y_EnemyN = y - int(y_Enemy)
-    if x_EnemyN > 0:
-        x_EnemyN = 1
-    elif x_EnemyN < 0:
-        x_EnemyN = -1
-    if y_EnemyN > 0:
-        y_EnemyN = 1
-    elif y_EnemyN < 0:
-        y_EnemyN = -1
-    x_Enemy += x_EnemyN
-    y_Enemy += y_EnemyN
+    for i in len(HowMany):
+        x_EnemyN = x - int(Enemy[i*1-1])
+        y_EnemyN = y - int(Enemy[i*2-1])
+        if x_EnemyN > 0:
+            x_EnemyN = 1
+        elif x_EnemyN < 0:
+            x_EnemyN = -1
+        if y_EnemyN > 0:
+            y_EnemyN = 1
+        elif y_EnemyN < 0:
+            y_EnemyN = -1
+        Enemy[i*1-1] += x_EnemyN
+        Enemy[i*2-1] += y_EnemyN
+
     if opc == "q" or opc == "Q":
         running = False
     if opc == "w" or opc == "W":
@@ -69,7 +70,7 @@ while running:
         y -= 1
     if opc == "d" or opc == "D":
         y += 1
-    if x == x_Enemy and y == y_Enemy:
+    if x == Enemy[0] and y == Enemy[1]:
         clear()
         running = False
         print("Has muerto")
