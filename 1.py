@@ -46,7 +46,7 @@ while running:
         print("Posicion X enemigo: " +str(Enemy[0]))
         print("Posicion Y enemigo: " +str(Enemy[1]))
     opc = input("Arriba(w), abajo(s), izquierda(a), derecha(d), sal(q): ")
-    for i in len(HowMany):
+    for i in range(HowMany):
         x_EnemyN = x - int(Enemy[i*1-1])
         y_EnemyN = y - int(Enemy[i*2-1])
         if x_EnemyN > 0:
