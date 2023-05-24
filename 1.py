@@ -43,23 +43,7 @@ while running:
     if Debug =="y" or Debug == "Y":
         print("Posicion X jugador: " + str(x))
         print("Posicion Y jugador: " +str(y))
-        print("Posicion X enemigo: " +str(Enemy[0]))
-        print("Posicion Y enemigo: " +str(Enemy[1]))
     opc = input("Arriba(w), abajo(s), izquierda(a), derecha(d), sal(q): ")
-    for i in range(HowMany):
-        x_EnemyN = x - int(Enemy[i*1-1])
-        y_EnemyN = y - int(Enemy[i*2-1])
-        if x_EnemyN > 0:
-            x_EnemyN = 1
-        elif x_EnemyN < 0:
-            x_EnemyN = -1
-        if y_EnemyN > 0:
-            y_EnemyN = 1
-        elif y_EnemyN < 0:
-            y_EnemyN = -1
-        Enemy[i*1-1] += x_EnemyN
-        Enemy[i*2-1] += y_EnemyN
-
     if opc == "q" or opc == "Q":
         running = False
     if opc == "w" or opc == "W":
@@ -70,6 +54,19 @@ while running:
         y -= 1
     if opc == "d" or opc == "D":
         y += 1
+    for i in range(HowMany):
+        x_EnemyN = x - int(Enemy[0])
+        y_EnemyN = y - int(Enemy[1])
+        if x_EnemyN > 0:
+            x_EnemyN = 1
+        elif x_EnemyN < 0:
+            x_EnemyN = -1
+        if y_EnemyN > 0:
+            y_EnemyN = 1
+        elif y_EnemyN < 0:
+            y_EnemyN = -1
+        Enemy[0] += x_EnemyN
+        Enemy[1] += y_EnemyN
     if x == Enemy[0] and y == Enemy[1]:
         clear()
         running = False
