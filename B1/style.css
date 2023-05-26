@@ -1,0 +1,24 @@
+.NavigateBar {
+    background-color: aquamarine;
+    text-align: right;
+    width: 100%;
+}
+#buttonM {
+    position: relative;
+    border: none;
+    background-color:rgb(184, 13, 236);
+    padding: 16px 16px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+#Squish {
+    background-color: rgba(240, 248, 255, 0);
+    border: rgba(240, 248, 255, 0);
+}
+#HertaGif {
+    width: 200px;
+    height: 200px;
+}
+#buttonM:hover {
+    background-color:rgb(132, 39, 160);
+}
