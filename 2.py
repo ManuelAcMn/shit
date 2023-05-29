@@ -39,6 +39,14 @@ BannersDisponibles = []
 BannersDisponibles.append(Tiradas([32548],"Tirada Estelar"))
 BannersDisponibles.append(Tiradas([0, 3],"Tirada Meteorica"))
 
+if os.path.exists("./SavadoGacha.txt"):
+    f = open("./SavadoGacha.txt")
+    f2 = f.readlines()
+    for i in range(len(tiene)):
+        tiene[i] = bool(f2[i])
+    f.close()
+    clear()
+
 def InprimirBanner(tira = int(1)):
     banner = BannersDisponibles[tira-1]
     if tira == 1:
@@ -68,11 +76,25 @@ def Mostrar(mostrarObjs = True):
             else:
                 print(str(i+1) + ". "+objs[i]+ ": tiene")
 
-def TiraYa(BannerTitado = 0, NumeroTiradas = 1):
+def TiraYa(BannerTirado = int(0), NumeroTiradas = 1):
     Mostrar(False)
-    print("Bloqueado por puto")
-    while True:
+    banner = BannersDisponibles[BannerTirado]
+    opciones = banner.GetObjs()
+    Salio = random.choice(opciones)
+    opciones =objs[Salio]
+    print("Obteniste " + opciones)
+    tiene[Salio] = True
+    print("Quieres guardar datos? ")
+    opc = input("Yes/No: ")
+    if opc == "yes" or opc == "y" or opc == "Y" or opc == "Yes" or opc == "YES":
+        f = open("./SavadoGacha.txt", "w")
+        for i in tiene:
+            f.write(str(i))
+        f.close()
+        clear()
+    if opc == "no" or opc == "n" or opc == "N" or opc == "No" or opc == "NO":
         1+1
+    inicio()
 
 def inicio():
     Mostrar()
