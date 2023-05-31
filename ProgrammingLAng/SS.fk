@@ -1,0 +1,4 @@
+print Hola
+give $variable paco
+input Dime algo $variable: 
+print $variable
