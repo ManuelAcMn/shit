@@ -1,4 +1,12 @@
-print Hola
 give $variable paco
-input Dime algo $variable: 
-print $variable
+give $other true
+print Hola $variable
+input Dime algo de ti:
+if $variable == paco
+do
+print paco eres un grande quillo
+else
+print y tu quien eres?
+done
+give $variable antonio
+print y porque ahora eres $variable
